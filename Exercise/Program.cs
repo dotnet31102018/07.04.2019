@@ -41,8 +41,18 @@ namespace Exercise0704
         }
         static void Main(string[] args)
         {
-            var results = GetEmployeesAdnDepartment();
-           
+            var employees = GetEmployeesAdnDepartment();
+
+            // Etgar - how to read anonymous object?
+            // answer: dynamic
+            foreach (var e in employees)
+            {
+                var eId = ((dynamic)e).Employee_Id;
+                var eName = ((dynamic)e).Employee_Name;
+                var eDepName = ((dynamic)e).Department_Name;
+
+                Console.WriteLine($"{eId} {eName} {eDepName}");
+            }
             Console.WriteLine();
         }
     }
